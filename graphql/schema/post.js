@@ -20,6 +20,7 @@ type ${Entity} {
 
 const queries = `
   all${Entities}(page: Int): [${Entity}!]
+  countAll${Entities}: Int
   get${Entity}ById(id: Int!): ${Entity}!
 `;
 
@@ -37,6 +38,7 @@ const resolvers = {
       }
       return context.crud.getAll(tableName);
     },
+    [`countAll${Entities}`]: (parent, { id }, context) => context.crud.countAll(tableName),
     [`get${Entity}ById`]: (parent, { id }, context) => context.crud.getById(tableName, id),
   },
   Mutation: {

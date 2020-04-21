@@ -5,9 +5,14 @@
 const db = require('./connection');
 
 // select * from {table}
-const getAll = (tableName) => db(tableName)
+const getAll = tableName => db(tableName)
   .select()
   .then(rows => rows);
+
+// select count(*) from {table}
+const countAll = tableName => db(tableName)
+  .count('* as total')
+  .then(rows => rows[0]['total']);
 
 // select * from {table} limit 10, offset {page}
 const getPage = (tableName, unsafePage = 1) => {
@@ -68,6 +73,7 @@ const remove = (tableName, id) => db(tableName)
 // done!
 module.exports = {
   getAll,
+  countAll,
   getPage,
   getById,
   insert,

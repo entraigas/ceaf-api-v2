@@ -18,7 +18,7 @@
     "graphql": "^15.0.0",
     "graphql-tools": "^5.0.0",
     "knex": "^0.20.14",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "sqlite3": "^4.1.1"
   },
   "devDependencies": {
